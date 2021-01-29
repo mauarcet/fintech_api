@@ -8,3 +8,7 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+
+  web_migrations:
+    build: .
+    command: ./fintech_api/manage.py migrate
