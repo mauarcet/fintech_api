@@ -1,9 +1,9 @@
-## Fintech API
+# Fintech API
 
 This API provides a service that allows the registration of users' transactions to have an overview of their economic behavior.
 It's constructed under the Django Rest Framework.
 
-### Installation
+## Installation
 
 This project comes with a Docker recipe. `docker-compose` and `Docker` are required for the installation.
 
@@ -20,7 +20,7 @@ From the command line run:
 docker-compose up
 ```
 
-### Tests
+## Tests
 
 In order to run the test suite kill the server with: `Ctrl+c`
 From the command line:
@@ -29,11 +29,12 @@ From the command line:
 docker-compose run --service-ports web python fintech_api/manage.py test users_transactions
 ```
 
-### Usage
+## Usage
 
 The following is a description of the objects used in the API and the endpoints available.
 
-**User**
+### User
+
 The `User` object allows you to register the users you want to register transactions and overview their economic behavior.
 
 | Parameter                 | Description       |
@@ -61,7 +62,8 @@ curl --location --request POST 'http://127.0.0.1:8000/users/' \
 }'
 ```
 
-**Transaction**
+### Transaction
+
 Represents the money movement realized by the user.
 Bulk transaction creation is featured.
 | Parameter | Description |
@@ -97,7 +99,8 @@ curl --location --request POST 'http://127.0.0.1:8000/transactions/' \
 }'
 ```
 
-**User Transaction**
+### User Transaction
+
 The following endpoint is useful for data insights on the user.
 They provide summaries for inflow and outflow transactions as well as category type transactions.
 All the query params are optional, when no parameter is sent the endpoint will return the transactions made by the specified user.
@@ -143,7 +146,8 @@ curl --location --request GET 'http://127.0.0.1:8000/users/3/transactions?start_
 
 ---
 
-**Technical Debt**
+### Technical Debt
+
 Due to time constraints some technical debt is left in this application:
 
 - Different env handling is not available.
