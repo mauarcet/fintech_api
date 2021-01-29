@@ -3,12 +3,8 @@ version: "3"
 services:
   web:
     build: .
-    command: python fintech_api/manage.py runserver 0.0.0.0:8000
+    command: bash -c "python fintech_api/manage.py migrate && python fintech_api/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
       - "8000:8000"
-
-  web_migrations:
-    build: .
-    command: ./fintech_api/manage.py migrate
