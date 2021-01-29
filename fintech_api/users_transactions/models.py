@@ -14,9 +14,9 @@ class User(models.Model):
 
 class Transaction(models.Model):
     TransactionType = models.TextChoices('TransactionType', 'inflow outflow')
-    reference = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    reference = models.CharField(primary_key=True, max_length=20)
     account = models.CharField(max_length=15)
-    created_at = models.DateTimeField(auto_now_add=True)
+    date = models.DateField()
     amount = models.DecimalField(decimal_places=2, max_digits=30)
     type = models.CharField(blank=True, choices=TransactionType.choices ,max_length=15)
     category = models.CharField(max_length=15)
