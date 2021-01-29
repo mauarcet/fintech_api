@@ -1,4 +1,5 @@
-## Fintech API
+## Fintech API
+
 This API provides a service that allows the registration of users' transactions to have an overview of their economic behavior.
 It's constructed under the Django Rest Framework.
 
@@ -145,9 +146,15 @@ curl --location --request GET 'http://127.0.0.1:8000/users/3/transactions?start_
 **Technical Debt**
 Due to time constraints some technical debt is left in this application:
 
+- Different env handling is not available.
+
+- Current configuration is not suited for production.
+
+- Security is not fully assured.
+
 - More detailed error responses are required
 
-- The Date format on the requirements is not optimal, I would prefered to use a timestamp instead. As this product is intended for other developers, unix timestamp is a better fit for the communication between systems
+- The Date format on the requirements is not optimal, I would prefered to use a timestamp instead. As this product is intended for other developers, unix timestamp is a better fit for the communication between systems.
 
 - Reference shouldn't be provided by the user. The requirements specified that the reference was provided by the user, but this could be saved as another variable and use a UUID as the primary key for the object.
 
